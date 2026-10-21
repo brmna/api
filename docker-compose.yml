@@ -1,0 +1,16 @@
+# Alternativa a instalar PostgreSQL: mismo puerto y credenciales que application.properties
+services:
+  db:
+    image: postgres:17
+    container_name: tienda-db
+    environment:
+      POSTGRES_DB: tienda_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - tienda_data:/var/lib/postgresql/data
+
+volumes:
+  tienda_data:
